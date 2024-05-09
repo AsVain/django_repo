@@ -1,1 +1,0 @@
-# This is repo which is used for django project
