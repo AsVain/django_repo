@@ -6,8 +6,12 @@ urlpatterns = [
     #path("january", views.january),      #całe to wyrażenie tworzy tzw. URLconfig (URLConf)
     #path("february", views.february),
     #path("march", views.march),
-    path("<month>", views.monthly_challenge)  # <> - placeholder         #nie obchodzi mnie co tu jest napisane, wiem, że jest to miesiac, moze to byc kazdy miesiac
+    path("<int:month>", views.monthly_challenge_by_number),
+    path("<str:month>", views.monthly_challenge)  # <> - placeholder         #nie obchodzi mnie co tu jest napisane, wiem, że jest to miesiac, moze to byc kazdy miesiac, path("<month>", views.monthly_challenge)
+    
 ]
+#palceholder przyjmuje każde wartości, dlatego tak zsotawiony placeholder będzie przyjmował np słowa anything, koło, szkoła, wszystko...
+#Można ograniczyć ten placeholder, np. poprzez typ danych, jakim musi być. path("<str:month>", views.monthly_challenge)
 
 #mam URL, które są obsługiwane przez aplikację challenges w całym projekcie monthly_challenges.
 #trzeba teraz połączyć aplikacje challenge z całym projektem
