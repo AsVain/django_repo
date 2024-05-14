@@ -20,9 +20,10 @@ monthly_challenges = {                  #słownik z miesiącami, po to by zautom
 def monthly_challenge(request, month):      #przyjmuje request od klienta oraz month (placeholder obojetnie jakiego URL)
     try: 
         challenge_text = monthly_challenges[month]
-        return HttpResponse(challenge_text)             #co zwraca użytkownikowi
+        response_data = f"<h1>{challenge_text}</h1>"    #f-string -> dzieki temu mozna zawrzec miedzy cudzyslowiem wartosci, zmienne jakie chcemy
+        return HttpResponse(response_data)             #co zwraca użytkownikowi
     except:
-        return HttpResponseNotFound("This month is not supported!")    
+        return HttpResponseNotFound("<h1>This month is not supported!</h1>")    
 
 def monthly_challenge_by_number(request, month):        #redirections - numery na miesiące
     months = list(monthly_challenges.keys())                #.keys() - funkcja, która wypisuje keys ze słownika
