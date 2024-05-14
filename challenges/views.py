@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect #wbudowana klasa #not found - 404 error moze byc wyswietlony oraz klasa do przekierowywania
-
+from django.urls import reverse #pozwala tworzyć ścieżki (paths) poprzez odsyłanie do nazw ścieżek tych URL
 
 monthly_challenges = {                  #słownik z miesiącami, po to by zautomatyzować proces i skrócić działanie kodu
     "january": "Eat no meat for the entire month!",
@@ -31,7 +31,8 @@ def monthly_challenge_by_number(request, month):        #redirections - numery n
         return HttpResponseNotFound("Invalid month")
     
     redirect_month = months[month-1]
-    return HttpResponseRedirect("/challenges/" + redirect_month)
+    redirect_path = reverse("month-challenge", args=[redirect_month])          #/challenge/january      #dzieki temu mozemy zmienic url w projekcie jak i kiedy chcemy
+    return HttpResponseRedirect(redirect_path)    #challanges są zahardkodowane w urlach całego projektu, nie chcemy tego.
 
     #response with code 3## to redirect 
     """

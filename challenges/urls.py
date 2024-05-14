@@ -4,7 +4,7 @@ from . import views     #z tego samego folderu, gdzie jestem, użyj pliku views
 
 urlpatterns = [
 
-    path("<int:month>", views.monthly_challenge_by_number),
-    path("<str:month>", views.monthly_challenge)  # <> - placeholder         #nie obchodzi mnie co tu jest napisane, wiem, że jest to miesiac, moze to byc kazdy miesiac, path("<month>", views.monthly_challenge)
+    path("<int:month>", views.monthly_challenge_by_number), #dynamic path segments
+    path("<str:month>", views.monthly_challenge, name = "month-challenge")  # <> - placeholder         #nie obchodzi mnie co tu jest napisane, wiem, że jest to miesiac, moze to byc kazdy miesiac, path("<month>", views.monthly_challenge)
                                                   #placeolder, który trzyma obojętnie jakie wartości jest nazwany month. path odnosi się do funkcji view monthly_challange
 ]

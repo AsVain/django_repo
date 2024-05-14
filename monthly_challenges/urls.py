@@ -19,5 +19,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("challenges/", include("challenges.urls"))  #include -> funkcja, która przyjmuje dwa argumenty: katalog i plik (Podaję katalog i plik, gdzie znadjują się URL apliakcji, którą chcemy włączyć do całego projektu). Nie trzeba podawać rozszerzenia plików.
+    path("challenges/", include("challenges.urls",))  #include -> funkcja, która przyjmuje dwa argumenty: katalog i plik (Podaję katalog i plik, gdzie znadjują się URL apliakcji, którą chcemy włączyć do całego projektu). Nie trzeba podawać rozszerzenia plików.
 ]
+
+#reverse działa w aplikacji poprawnie, gdy są name paths, czyli mają nazwę oraz reverse funkjcja we view
