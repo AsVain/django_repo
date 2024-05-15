@@ -19,9 +19,12 @@ monthly_challenges = {                  #słownik z miesiącami, po to by zautom
     "december": "Eat no meat for the entire month!"
 }
 
-def index(reqest):      #lista miesięcy na stronie głównej
-    list_items = ""
+def index(request):      #lista miesięcy na stronie głównej
     months = list(monthly_challenges.keys())
+    
+    return render(request, "challenges/index.html", {
+        "months": months
+    })
     
     for month in months:
         capitalized_month = month.capitalize()
