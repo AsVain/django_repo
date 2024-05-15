@@ -25,15 +25,6 @@ def index(request):      #lista miesięcy na stronie głównej
     return render(request, "challenges/index.html", {
         "months": months
     })
-    
-    for month in months:
-        capitalized_month = month.capitalize()
-        month_path = reverse("month-challenge", args=[month])
-        list_items += f"<li><a href=\"{month_path}\">{capitalized_month}</a></li>"
-    
-    response_data = f"<ul>{list_items}</ul>"   
-    return HttpResponse(response_data)
-
 
 def monthly_challenge(request, month):      #przyjmuje request od klienta oraz month (placeholder obojetnie jakiego URL)
     try: 
