@@ -17,6 +17,18 @@ monthly_challenges = {                  #słownik z miesiącami, po to by zautom
     "december": "Eat no meat for the entire month!"
 }
 
+def index(reqest):
+    list_items = ""
+    months = list(monthly_challenges.keys())
+    
+    for month in months:
+        capitalized_month = month.capitalize()
+        month_path = reverse("month-challenge", args=[month])
+        list_items += f"<li><a href=\"{month_path}\">{capitalized_month}</a></li>"
+    
+    response_data = f"<ul>{list_items}</ul>"   
+    return HttpResponse(response_data)
+
 def monthly_challenge(request, month):      #przyjmuje request od klienta oraz month (placeholder obojetnie jakiego URL)
     try: 
         challenge_text = monthly_challenges[month]
