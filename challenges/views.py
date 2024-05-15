@@ -50,15 +50,6 @@ def monthly_challenge_by_number(request, month):        #redirections - numery n
     redirect_path = reverse("month-challenge", args=[redirect_month])          #/challenge/january      #dzieki temu mozemy zmienic url w projekcie jak i kiedy chcemy
     return HttpResponseRedirect(redirect_path)    #challanges są zahardkodowane w urlach całego projektu, nie chcemy tego.
 
-    """
-        responses:
-        1 - informational responses
-        2 - successful responses
-        3 - redirection messages
-        4 - client server responses
-        5 - server error responses                                
-                                        
-    """
 
 
 
