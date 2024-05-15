@@ -37,7 +37,7 @@ def monthly_challenge(request, month):      #przyjmuje request od klienta oraz m
         challenge_text = monthly_challenges[month]  
         return render(request, "challenges/challenge.html", {       #ten słownik jest nazwany contextem templatki lub generowanie templatki
             "text": challenge_text,
-            "month_name": month.capitalize()
+            "month_name": month
             })                                                      #render() potrzebuje 2 argumentow, request oraz sciezka do pliku
                                                                     #response_data = render_to_string("challenges/challenge.html")    #f"<h1>{challenge_text}</h1>"    #f-string -> dzieki temu mozna zawrzec miedzy cudzyslowiem wartosci, zmienne jakie chcemy
                                                                     #return HttpResponse(response_data)             #co zwraca użytkownikowi    #musi tu być trzeci argument - słownik, zeby zrobic dynamiczny plik html
