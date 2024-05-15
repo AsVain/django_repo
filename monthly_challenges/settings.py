@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'challenges',       #nazwa aplikacji, odnajdziemy ją np. w folderze apps.py w folderze aplikacji
+                        #Jeśli jest aplikacja, która jest częścią projektu, należy ją oficjalnie zarejestrować w projekcie: settings .py -> installed_apps. 
+                        #Wtedy dzięki app_dirs, będzie automatycznie wyszukiwany folder z templatkami
 ]
 
 MIDDLEWARE = [
@@ -54,7 +57,9 @@ ROOT_URLCONF = 'monthly_challenges.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            #BASE_DIR / "challenges" / "templates"   #w folderze projektowym jest folder challenges i podfolder templates. Nie potrzebuję tu zarzeć zagnieżdżonego folderu challenges pod templates, ponieważ w views jest przekierowanie ze ścieżki challenges/challenge.html
+            ],  #jeśli chcemy mieć folder templatek, ale w poziomie globalnym, ktory nie jest w aplikacji, to nalezy umiescic jego sciezke tutaj, poniewaz app_dirs szuka folderow templatkowych tylko i wylacznie w folderach aplikacji
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
