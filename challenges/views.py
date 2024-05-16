@@ -16,7 +16,7 @@ monthly_challenges = {                  #słownik z miesiącami, po to by zautom
     "september": "Eat no meat for the entire month!",
     "october": "Learn Django for at least 20 minutes every day!",
     "november": "Walk for at least 20 minutes every day!",
-    "december": "Eat no meat for the entire month!"
+    "december": None
 }
 
 def index(request):      #lista miesięcy na stronie głównej
