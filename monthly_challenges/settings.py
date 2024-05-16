@@ -59,6 +59,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             #BASE_DIR / "challenges" / "templates"   #w folderze projektowym jest folder challenges i podfolder templates. Nie potrzebuję tu zarzeć zagnieżdżonego folderu challenges pod templates, ponieważ w views jest przekierowanie ze ścieżki challenges/challenge.html
+            BASE_DIR / "templates"  #pozwoli to django szukać templatek pod tą nazwą w folderze głównym projektu
             ],  #jeśli chcemy mieć folder templatek, ale w poziomie globalnym, ktory nie jest w aplikacji, to nalezy umiescic jego sciezke tutaj, poniewaz app_dirs szuka folderow templatkowych tylko i wylacznie w folderach aplikacji
         'APP_DIRS': True,
         'OPTIONS': {

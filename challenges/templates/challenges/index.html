@@ -1,15 +1,17 @@
+{% extends "base.html" %} <!--musi być zawsze na górze pliku, załączenie pliku, z którego coś chcemy odziedziczyć-->
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Challenges</title>
-</head>
-<body>                                  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  NIE TRZEBA mieć tego fragmentu, ponieważ jest tu dizedziczenie z base.html-->
+    <!-- <title> --> {% block page_title %} All Challenges {% endblock %} <!-- </title> -->
+<!--</head>
+<body>          --> {% block content %}                        
     <ul>
         {% for month in months %}      <!--nawiasy z procentami umożliwiają danie logiki pythona-->
             <li><a href="{% url "month-challenge" month %}">{{ month|title }}</a></li>        <!--month jest obojętną moją nazwą, a months to key podany w view-index-return render...-->
         {% endfor %}                    <!--zakończenie pętli-->
-    </ul>                               <!--wcięcia nie mają tutaj znaczenia, w DTL. W django, pythonie tak, ale w dtl nie-->
-</body>                                 <!--reverse function tu nie zadziała, ale jest tag url-->
-</html>
+    </ul>      {% endblock %}                         <!--wcięcia nie mają tutaj znaczenia, w DTL. W django, pythonie tak, ale w dtl nie-->
+<!-- </body> -->                                <!--reverse function tu nie zadziała, ale jest tag url-->
+<!-- </html> -->
