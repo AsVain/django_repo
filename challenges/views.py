@@ -1,5 +1,5 @@
 from django.shortcuts import render #zamienia funkcję render_to_string i wysyła z powrotem odpowiedź. 
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect #wbudowana klasa #not found - 404 error moze byc wyswietlony oraz klasa do przekierowywania
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect, Http404 #wbudowana klasa #not found - 404 error moze byc wyswietlony oraz klasa do przekierowywania
 from django.urls import reverse #pozwala tworzyć ścieżki (paths) poprzez odsyłanie do nazw ścieżek tych URL
 #from django.template.loader import render_to_string #generowanie czegoś do stringa
 
@@ -36,7 +36,7 @@ def monthly_challenge(request, month):      #przyjmuje request od klienta oraz m
                                                                     #response_data = render_to_string("challenges/challenge.html")    #f"<h1>{challenge_text}</h1>"    #f-string -> dzieki temu mozna zawrzec miedzy cudzyslowiem wartosci, zmienne jakie chcemy
                                                                     #return HttpResponse(response_data)             #co zwraca użytkownikowi    #musi tu być trzeci argument - słownik, zeby zrobic dynamiczny plik html
     except:
-        return HttpResponseNotFound("<h1>This month is not supported!</h1>")    
+        raise Http404()    
 
 
 def monthly_challenge_by_number(request, month):        #redirections - numery na miesiące
