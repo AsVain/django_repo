@@ -1,4 +1,10 @@
 {% extends "base.html" %} <!--musi być zawsze na górze pliku, załączenie pliku, z którego coś chcemy odziedziczyć-->
+{% load static %}  <!--load tag, można podłączyć dodatkowe funkcje-->
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "challenges/challenges.css" %}">
+
+{% endblock %}
 <!--
 <!DOCTYPE html>
 <html lang="en">
