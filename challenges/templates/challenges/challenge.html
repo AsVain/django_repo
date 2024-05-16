@@ -1,18 +1,14 @@
-<!--Indywidualny challenge-->
-<!--Po napisaniu "html" i wybraniu opcji html:5 wygeneruje się podstawowy szkielet html-->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ month_name|title }} challenge</title>
-</head>
-<body>
+{% extends "base.html" %}    
+    
+{% block page_title %}
+    {{ month_name|title }} Challenge
+{% endblock %}
+
+{% block content %}
     <h1>{{ month_name|title }} Challenge</h1> <!--nie możemy użyć funkcji capitalized you w skladni django w html <h1>{{ month_name }} Challenge</h1>, mozna tu przekazywać jakies zminne, ale nie cala logike          Zastosowany został filtr tytułu, filtry to czesc jezyka DTL -->
     {% if text is not None %}
         <h2>{{ text }}</h2> <!--#palceholder dla kodu django w kodzie html-->
     {% else %}
         <p>There is no challenge for this month yet!</p>
     {% endif %}
-</body>
-</html>
+{% endblock %}
