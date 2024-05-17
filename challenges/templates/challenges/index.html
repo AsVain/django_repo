@@ -4,7 +4,6 @@
 {% block css_files %}
 <link rel="stylesheet" href="{% static "challenges/challenges.css" %}">
 <link rel="stylesheet" href="{% static "challenges/includes/header.css" %}">
-
 {% endblock %}
 <!--
 <!DOCTYPE html>
@@ -20,6 +19,7 @@
         {% for month in months %}      <!--nawiasy z procentami umożliwiają danie logiki pythona-->
             <li><a href="{% url "month-challenge" month %}">{{ month|title }}</a></li>        <!--month jest obojętną moją nazwą, a months to key podany w view-index-return render...-->
         {% endfor %}                    <!--zakończenie pętli-->
-    </ul>      {% endblock %}                         <!--wcięcia nie mają tutaj znaczenia, w DTL. W django, pythonie tak, ale w dtl nie-->
+    </ul>      
+    {% endblock %}                         <!--wcięcia nie mają tutaj znaczenia, w DTL. W django, pythonie tak, ale w dtl nie-->
 <!-- </body> -->                                <!--reverse function tu nie zadziała, ale jest tag url-->
 <!-- </html> -->
