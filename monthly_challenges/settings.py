@@ -123,11 +123,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'  #django będzie szukac w folderach static, statycznych plikow. W folderach aplikacji bedzie suzkac
 
+STATICFILES_DIRS = [
+    BASE_DIR / "static"
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-STATICFILES_DIRS = [
-    BASE_DIR / 'static'
-]

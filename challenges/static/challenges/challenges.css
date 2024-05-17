@@ -10,16 +10,28 @@ ul {
     flex-direction: column;
     flex-wrap: wrap;
     height: 30rem;
+    background-color: #a0c0cf;
 }
 
 li{
     margin: 1rem 0;
     text-align: center;
-    font: 1.5rem;
+    font-size: 1.5rem;
     border-bottom: 1px solid #ccc;
     padding-bottom: 1rem;
 }
 
-li:last-of-type{
+li:last-of-type,
+li:nth-of-type(6){
     border-bottom: none;
+}
+
+li a{
+    text-decoration: none;
+    color: #4f4f4f;
+}
+
+li a:hover,
+li a:active{
+    color: #d300d3;
 }
